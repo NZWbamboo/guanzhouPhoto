@@ -16,9 +16,16 @@ public class PhotoPanelController : MonoBehaviour
         PhotoBut = this.transform.Find("PhotoBut");
         PhotoBut.GetComponent<Button>().onClick.AddListener(PhotoButS);
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("拍照");
+            PhotoButS();
+        }
+    }
     void PhotoButS()
     {
-        SoundManager.instance.audioSource.Play();
         StartCoroutine(UploadPNG());
         PhotoBut.gameObject.SetActive(false);
         time.SetActive(true);
@@ -29,7 +36,8 @@ public class PhotoPanelController : MonoBehaviour
     IEnumerator UploadPNG()
     {
         yield return new WaitForSeconds(4.2f);
-        DestroyImmediate(time);
+        //   DestroyImmediate(time);
+        time.SetActive(false);
         yield return new WaitForEndOfFrame();
 
         int width = Screen.width;
@@ -49,15 +57,20 @@ public class PhotoPanelController : MonoBehaviour
         up = GameObject.Find("UPorLoad").GetComponent<UpLoadPhoto>();
         up.img = End.transform.Find("Code").GetComponent<Image>();
         UpPhoto();
-        whiteScreen.SetActive(true);
-        Destroy(whiteScreen, 0.5f);
+       // whiteScreen.SetActive(true);
+       // Destroy(whiteScreen, 0.5f);
         yield return new WaitForSeconds(0.5f);
         End.SetActive(true);
-        GetWebCamera.camTexture.Stop();
+        //    GetWebCamera.camTexture.Stop();
         //this.gameObject.SetActive(false);
-        Destroy(gameObject);
+        // Destroy(gameObject);
+        ResetPhotoPage();
     }
-    
+    void ResetPhotoPage()
+    {
+        PhotoBut.gameObject.SetActive(true);
+        // time.SetActive(true);
+    }
     public UpLoadPhoto up;
 
     public void UpPhoto()

@@ -27,16 +27,9 @@ public class UpLoadPhoto : MonoBehaviour
     public byte[] bytes;
     public int id;
     public Text num;
-    //private string url = "http://app.maymotion.com/apps/chaoxing/wall/api.php?api=upl_user_photo";
-    //  private string url = "http://app.maymotion.com/apps/yuhuan/photo/api.php?api=upl_photo";//台州志愿者
-    private string url = "http://app.maymotion.com/apps/ceshi/photo/api.php?api=upl_photo";//Ahava上传预览图片的地址
+    private string url = "http://app.maymotion.com/apps/guangzhou/photo/api.php?api=upl_photo";//Ahava上传预览图片的地址
     private string Printurl = "http://app.maymotion.com/open/wx0e61740295e3b17d/ahava/api.php?api=upl_photo1";//上传打印图片的地址
-   // private string checkurl = "http://app.maymotion.com/open/wx6be19a2d21b2d544/zltp/api.php?api=get_user_data";
-    // private string url = "http://app.maymotion.com/apps/lilai/photo/api.php?api=upl_photo";
-    //private string url = "http://app.maymotion.com/apps/ndsy/wall/api.php?api=upl_user_photo";
-    //测试版
-    //private string url = "http://app.maymotion.com/open/wx6be19a2d21b2d544/wall/api.php?api=upl_user_photo";
-    //private string url = "http://app.maymotion.com/open/wx6be19a2d21b2d544/shtp/api.php?api=upl_user_photo";//卖萌互动
+  
     private PhotoDate photodate;
     public bool issshow = false;
 

@@ -45,7 +45,7 @@ public class SelectPanelController : MonoBehaviour
 
     public void Switch(int direction)
     {
-        SoundManager.instance.audioSource.Play();
+       // SoundManager.instance.audioSource.Play();
         Transform farme = framePanelGroup[Mathf.Abs(index) % 4];
         lift.enabled = false;
         right.enabled = false;
@@ -101,8 +101,6 @@ public class SelectPanelController : MonoBehaviour
         // }
         //  // Debug.Log(1);
 
-
-
         // tweening.Append(framePanelGroup[0].DOLocalMoveX(0, 0.5f).SetId("In").SetEase(Ease.OutBack));
         //再移入
 
@@ -119,8 +117,11 @@ public class SelectPanelController : MonoBehaviour
     //选择相框
     public  void Photo()
     {
-        SoundManager.instance.audioSource.Play();
         frame = transform.root.Find("PhotoPanel").transform.Find("Frame");
+        if (frame==null)
+        {
+            return;
+        }
         frame.GetComponent<Animator>().SetTrigger(Mathf.Abs(index%4).ToString());
         Destroy(this.gameObject);
 

@@ -26,15 +26,13 @@ public class EndPanel : MonoBehaviour
     }
     void PrintBut()
     {
-        SoundManager.instance.audioSource.Play();
+       // SoundManager.instance.audioSource.Play();
         TipPage.gameObject.SetActive(true);
         Print.enabled = false;
         StartCoroutine(loadPhoto.UpLoadPrint());
     }
     void ExitBut()
     {
-        SoundManager.instance.audioSource.Play();
-        Gamemanger.isAwaken = true;
         StartCoroutine(loadSence());
        
     }
@@ -45,13 +43,10 @@ public class EndPanel : MonoBehaviour
     }
     void restartBut()
     {
-        SoundManager.instance.audioSource.Play();
-        GameObject PhotoPanel = Resources.Load<GameObject>("UIPrefabs/PhotoPanel 1");
+      
+        GameObject PhotoPanel = Resources.Load<GameObject>("GZPrefabs/PhotoPanel");
 
-        Instantiate<GameObject>(PhotoPanel, transform.parent).name = "PhotoPanel";
-      //  Gamemanger.isAwaken = true;
-        GameObject selectFrame = Resources.Load<GameObject>("UIPrefabs/selectFrame_one");
-        Instantiate<GameObject>(selectFrame, transform.parent);
+        Instantiate<GameObject>(PhotoPanel, transform.parent).name = "PhotoPane";
 
         Destroy(this.gameObject);
     }
